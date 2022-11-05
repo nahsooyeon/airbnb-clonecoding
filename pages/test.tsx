@@ -7,7 +7,10 @@ const Test = () => {
   const [id, setId] = useState<string>("");
 
   const handleClick = (e) => {
-    datadogLogs.logger.info("Button clicked", { name: "test id", id: id });
+    datadogLogs.logger.info("Button clicked", {
+      name: "input value",
+      value: id,
+    });
     console.log(id);
     router.push(`/test/${id}`);
   };
@@ -20,11 +23,14 @@ const Test = () => {
         onChange={(e) => {
           setId(e.target.value);
         }}
+      />
+      <button
         onClick={(e) => {
           handleClick(e);
         }}
-      />
-      <button>Redirect to ID Page</button>
+      >
+        Redirect to ID Page
+      </button>
     </div>
   );
 };

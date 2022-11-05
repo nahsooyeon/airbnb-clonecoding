@@ -2,8 +2,11 @@ import "../styles/globals.scss";
 import { datadogLogs, LogsInitConfiguration } from "@datadog/browser-logs";
 import { datadogRum } from "@datadog/browser-rum";
 import { useEffect } from "react";
+import { DD_Initialize } from "../common/DD";
+import { AppContext, AppInitialProps } from "next/app";
+// import { DDPageLog } from "../common/pageLog";
 
-datadogLogs.init({
+/* datadogLogs.init({
   clientToken: process.env.NEXT_PUBLIC_DATADOG_CLIENT_TOKEN,
   site: "datadoghq.com",
   service: "datadog-test-sample",
@@ -17,8 +20,6 @@ datadogRum.init({
   site: "datadoghq.com",
   service: "datadog-test-sample",
   env: "prod",
-  // Specify a version number to identify the deployed version of your application in Datadog
-  // version: '1.0.0',
   sampleRate: 100,
   sessionReplaySampleRate: 20,
   trackInteractions: true,
@@ -27,11 +28,29 @@ datadogRum.init({
   defaultPrivacyLevel: "mask-user-input",
 });
 
-datadogRum.startSessionReplayRecording();
+datadogRum.startSessionReplayRecording(); */
+DD_Initialize();
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {}, []);
   return <Component {...pageProps} />;
 }
 
+MyApp.getInitialProps = async (
+  appContext: AppContext
+): Promise<AppInitialProps> => {
+  const appInitialProps: AppInitialProps = { pageProps: {} };
+  console.log(appContext.ctx.asPath);
+  try {
+    datadogLogs.logger.info("page path changed", {
+      name: "previous path",
+      referrer: appContext.ctx.asPath,
+    });
+    console.log("success");
+  } catch (e) {
+    console.error(e);
+  } finally {
+    return appInitialProps;
+  }
+};
 export default MyApp;
