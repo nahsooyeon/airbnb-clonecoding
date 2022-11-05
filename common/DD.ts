@@ -43,7 +43,7 @@ export const DD_Initialize = () => {
     sampleRate: 100,
     env: "dev",
   } as LogsInitConfiguration);
-
+  /* 
   datadogRum.init({
     applicationId: process.env.NEXT_PUBLIC_DATADOG_APPLICATION_ID,
     clientToken: process.env.NEXT_PUBLIC_DATADOG_RUM_TOKEN,
@@ -52,8 +52,6 @@ export const DD_Initialize = () => {
     env: "dev",
     version: "1.0.0",
 
-    // Specify a version number to identify the deployed version of your application in Datadog
-    // version: '1.0.0',
     sampleRate: 100,
     sessionReplaySampleRate: 100,
     trackInteractions: true,
@@ -61,5 +59,5 @@ export const DD_Initialize = () => {
     trackLongTasks: true,
     defaultPrivacyLevel: "allow",
   });
-  datadogRum.startSessionReplayRecording();
+  datadogRum.startSessionReplayRecording(); */
 };
