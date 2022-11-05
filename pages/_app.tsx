@@ -26,10 +26,10 @@ datadogRum.init({
   defaultPrivacyLevel: "mask-user-input",
 });
 
+datadogRum.startSessionReplayRecording();
+
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    datadogRum.startSessionReplayRecording();
-  }, []);
+  useEffect(() => {}, []);
   return <Component {...pageProps} />;
 }
 
