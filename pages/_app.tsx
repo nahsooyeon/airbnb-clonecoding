@@ -1,20 +1,21 @@
 import "../styles/globals.scss";
-import { datadogLogs } from "@datadog/browser-logs";
+import { datadogLogs, LogsInitConfiguration } from "@datadog/browser-logs";
 import { datadogRum } from "@datadog/browser-rum";
 import { useEffect } from "react";
 
 datadogLogs.init({
   clientToken: process.env.NEXT_PUBLIC_DATADOG_CLIENT_TOKEN,
   site: "datadoghq.com",
+  service: "datadog-test-sample",
   forwardErrorsToLogs: true,
   sampleRate: 100,
-});
+} as LogsInitConfiguration);
 
 datadogRum.init({
-  applicationId: process.env.NEXT_PUBLIC_DATADOG_APPLICATION_ID,
-  clientToken: process.env.NEXT_PUBLIC_DATADOG_CLIENT_TOKEN,
+  applicationId: "3e88589b-ace3-4ab9-8a68-df02792aa6e5",
+  clientToken: "pub47e1703d1ce69634de9737244f07dc1c",
   site: "datadoghq.com",
-  service: "[rum]-token",
+  service: "datadog-test-sample",
   env: "prod",
   // Specify a version number to identify the deployed version of your application in Datadog
   // version: '1.0.0',
