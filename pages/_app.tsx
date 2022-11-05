@@ -13,7 +13,7 @@ datadogLogs.init({
 
 datadogRum.init({
   applicationId: "3e88589b-ace3-4ab9-8a68-df02792aa6e5",
-  clientToken: "pub47e1703d1ce69634de9737244f07dc1c",
+  clientToken: "pub8a17720e8410ba311b6f748ca532afd0",
   site: "datadoghq.com",
   service: "datadog-test-sample",
   env: "prod",
