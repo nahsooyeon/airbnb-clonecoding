@@ -12,7 +12,7 @@ datadogLogs.init({
 
 datadogRum.init({
   applicationId: process.env.NEXT_PUBLIC_DATADOG_APPLICATION_ID,
-  clientToken: process.env.NEXT_PUBLIC_DATADOG_RUM_TOKEN,
+  clientToken: process.env.NEXT_PUBLIC_DATADOG_CLIENT_TOKEN,
   site: "datadoghq.com",
   service: "[rum]-token",
   env: "prod",
