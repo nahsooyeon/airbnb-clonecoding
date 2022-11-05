@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@datadog/browser-logs": "^4.23.3",
     "isomorphic-unfetch": "^3.1.0",
-    "next": "11.1.2",
+    "next": "12.3.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sass": "^1.42.1"
