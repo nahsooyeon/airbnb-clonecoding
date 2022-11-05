@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
+import { datadogLogs } from "@datadog/browser-logs";
 
 const Test = () => {
   const router = useRouter();
   const [id, setId] = useState<string>("");
+
+  const handleClick = (e) => {
+    datadogLogs.logger.info("Button clicked", { name: "test id", id: id });
+    console.log(id);
+    router.push(`/test/${id}`);
+  };
   return (
     <div>
       Test Page
@@ -15,7 +21,7 @@ const Test = () => {
           setId(e.target.value);
         }}
         onClick={(e) => {
-          router.push(`/test/${id}`);
+          handleClick(e);
         }}
       />
       <button>Redirect to ID Page</button>
