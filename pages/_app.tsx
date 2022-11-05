@@ -29,7 +29,6 @@ datadogRum.init({
 });
 
 datadogRum.startSessionReplayRecording(); */
-DD_Initialize();
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {}, []);
@@ -41,6 +40,8 @@ MyApp.getInitialProps = async (
 ): Promise<AppInitialProps> => {
   const appInitialProps: AppInitialProps = { pageProps: {} };
   console.log(appContext.ctx.asPath);
+  DD_Initialize();
+
   try {
     datadogLogs.logger.info("page path changed", {
       name: "previous path",
